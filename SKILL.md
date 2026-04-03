@@ -715,10 +715,10 @@ When providing technical support to Accelera clients:
 **INSTRUCAO CRITICA PARA O CLAUDE:** Quando esta skill estiver carregada e o usuario fizer QUALQUER pergunta sobre GrowthAI, SEMPRE execute este comando Bash ANTES de responder:
 
 ```bash
-python C:/Users/Pichau/.claude/skills/recall-growthai/rag/query_knowledge.py "PERGUNTA_AQUI"
+PYTHONUNBUFFERED=1 python C:/Users/Pichau/.claude/skills/recall-growthai/rag/query_knowledge.py "PERGUNTA_AQUI"
 ```
 
-Substitua `PERGUNTA_AQUI` pela pergunta do usuario (em portugues ou ingles). Use timeout de 30000ms pois o modelo de embeddings demora ~10s no primeiro load.
+Substitua `PERGUNTA_AQUI` pela pergunta do usuario (em portugues ou ingles). Use timeout de 120000ms (2 min) pois o modelo de embeddings demora ~90s no primeiro load da sessao. Depois fica rapido. Use `PYTHONUNBUFFERED=1` antes do python para garantir output.
 
 **Base:** 1,110 chunks de 61 arquivos (21 videos + repo docs + .env.example + policies + release notes).
 

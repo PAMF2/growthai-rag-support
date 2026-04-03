@@ -46,6 +46,7 @@ def query(question: str, n_results: int = 5) -> list[dict]:
 
 
 def main():
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     if len(sys.argv) < 2:
         print("Usage: python query_knowledge.py \"sua pergunta aqui\"")
         print("\nExamples:")
